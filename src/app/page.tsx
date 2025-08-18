@@ -1,10 +1,11 @@
 // src/app/page.tsx
 import { redirect } from "next/navigation";
-// import { getSession } from "@/lib/auth"; // your auth helper
+import { getSession } from "@/lib/auth"; // your auth helper
 
 export default async function Home() {
-  // const session = await getSession();
-  const session = null; // Simulating no session for this example
+  const session = await getSession();
+  console.log("Session data:123", session);
+  // const session = null;
   if (!session) {
     redirect("/dashboard");
   } else {
